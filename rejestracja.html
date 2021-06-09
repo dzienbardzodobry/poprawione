@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Rejestracja</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="logowanie.ccs">
+    <script>
+function przetwarzaj_dane ()
+{
+
+  var brakuje_danych=false;
+  var formularz=document.forms[0];
+  var napis="";
+
+  if (formularz.login.value == ""){
+napis += "login\n"
+brakuje_danych=true;
+}
+
+if (formularz.haslo.value == ""){
+napis += "haslo\n"
+brakuje_danych=true;
+}
+if (formularz.imie.value == ""){
+    napis += "imię\n"
+    brakuje_danych=true;
+  }
+  if (formularz.nazwisko.value == ""){
+    napis += "nazwisko\n"
+    brakuje_danych=true;
+  }
+if (formularz.nrdomu.value == ""){
+    napis += "nrdomu\n"
+    brakuje_danych=true;
+}
+  if (formularz.tel.value == ""){
+    napis += "telefon\n"
+    brakuje_danych=true;
+  }
+
+  if (!brakuje_danych)
+    formularz.submit();
+  else
+    alert ("Nie wypełniłeś danych:\n"+napis);
+
+}
+</script>
+</head>  
+<body>
+      <form name="formularz1"
+      action="index.html"
+      method="get">
+<fieldset>
+         <legend>REJESTRACJA</legend>
+<i>(Pola oznaczone * muszą zostać wypełnione)</i><br/>
+<table>
+<tr>
+  <td><b>Dane do logowania:</b></td>
+  <td></td>
+</tr>
+<tr>
+<td>Login:</td>
+<td><input type="text" name="login">*</td>
+</tr>
+<tr>
+  <td>Hasło:</td>
+  <td><input type="password" name="haslo">*</td>
+</tr>
+<tr>
+  <td><B>Dane osobowe:</B></td>
+  <td></td>
+</tr>
+<tr>
+<td>Imię:</td>
+  <td><input type="text" name="imie">*</td>
+  </tr>
+  <tr>
+    <td>Nazwisko:</td>
+    <td><input type="text" name="nazwisko">*</td>
+  </tr>
+<tr>
+  <td>Ulica:</td>
+  <td><input type="text" name="ulica">*</td>
+</tr>
+<tr>
+<tr>
+    <td>Nr domu:</td>
+    <td><input type="number" name="nrdomu" placeholder="Podaj numer mieszkania" min="1" max="250">*</td>
+</tr>
+  <tr>
+  <td>Miasto:</td>
+  <td><input type="text" name="miasto">*</td>
+</tr>
+<tr>
+  <td>Telefon.:</td>
+  <td><input type="number" name="tel" placeholder="601-102-203" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">*</td>
+</tr>
+<tr>
+<td></td>
+<td>
+  <input type="button" name="wyslij"
+  value="Zarejestruj" onClick="przetwarzaj_dane()">
+</td>
+</tr>
+</table>
+</form>
+</fieldset> 
+
+</body>
+</html>

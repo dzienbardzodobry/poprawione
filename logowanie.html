@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Logowanie</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logowanie.ccs">
+    <script>
+function przetwarzaj_dane ()
+{
+
+  var brakuje_danych=false;
+  var formularz=document.forms[0];
+  var napis="";
+
+  if (formularz.login.value == ""){
+napis += "login\n"
+brakuje_danych=true;
+}
+
+if (formularz.haslo.value == ""){
+napis += "haslo\n"
+brakuje_danych=true;
+}
+if (!brakuje_danych)
+    formularz.submit();
+  else
+    alert ("Nie wpisałeś:\n" + napis);
+
+}
+    </script>
+  </head>
+    
+  <body>
+    <div class="login">
+    <form action="index.html" method="get" >
+      <fieldset>
+        <legend>LOGOWANIE</legend>
+        <table>
+          <tr>
+            <td>
+              <label for="login">Login:</label>
+            </td>
+            <td>
+              <input type="text" id="login" name="login" required />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label for="haslo">Hasło: </label>
+            </td>
+            <td>
+              <input type="password" name="haslo" id="haslo" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+            </td>
+            <td>
+              <input type="button" name="wyslij"
+              value="Zaloguj" onClick="przetwarzaj_dane()"><button class="fb" type="button"><a href="https://pl-pl.facebook.com/" target="_blank">Zaloguj przez FB</button></a> 
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+    </div>  
+  </body>
+</html>
